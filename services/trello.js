@@ -9,7 +9,7 @@ const baseAPI = 'https://api.trello.com/1';
  * Create a board on trello.com
  * @param {String} name  The name to dedicate to the board
  */
-export function createBoard(name) {
+function createBoard(name) {
 	var callURL = baseAPI + '/boards/?key=' + key + '&token=' + token + '&name=' + name;
 	fetch(callURL, {
 		method: 'POST'
@@ -24,7 +24,7 @@ export function createBoard(name) {
  * @param {String} boardName The name of the board to add members
  * @param {Array} membersList List of members to add
  */
-export function addMembersToABoard(boardName, membersList){
+function addMembersToABoard(boardName, membersList){
 	var answer;
 	memberList.forEach((member, index) => {
     	var callURL = baseAPI + '/boards/' + boardName + '/members/' + member['id'];
@@ -38,3 +38,7 @@ export function addMembersToABoard(boardName, membersList){
    	return answer;
 }
 
+module.exports = {
+    createBoard: createBoard,
+    addMembersToABoard: addMembersToABoard
+}

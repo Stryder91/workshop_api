@@ -1,9 +1,12 @@
-import { export } from "./services/trello.js";
-
-
 const express = require('express');
 const app = express();
 const port = 3000;
+require('dotenv').config();
+
+const createBoard = require('./services/trello');
+const addMembersToABoard = require('./services/trello');
+// import { createBoard, addMembersToABoard } from "./services/trello.js";
+// import { createFolder, appendFileToFolder } from "./services/google_drive/drive";
 
 app.use(
     express.urlencoded({
@@ -67,7 +70,7 @@ app.post('/project', (req, res) => {
             }
             
             if (services.type == "drive") {
-                // On crée un drive
+                
             }
         }
         

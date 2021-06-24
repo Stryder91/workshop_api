@@ -1,2 +1,4 @@
 node_modules/
 services/credentials.json
+.env
+.env.development.local
