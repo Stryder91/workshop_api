@@ -14,12 +14,13 @@ app.get('/', (req, res) => {
     res.send('Hello from milo!');
 });
 
+// Test du body qu'on envoie en curl ou autres
 app.post('/test', (req, res) => {
     res.send(JSON.stringify(req.body));
 });
 
+// Scénario 1 - Création d'un projet
 app.post('/project', (req, res) => {
-
     if (req.body) {
         const data = JSON.stringify(req.body);
         const serviceName = (data.name) ? data.name : null;
@@ -63,10 +64,6 @@ app.post('/project', (req, res) => {
             
             if (services.type == "drive") {
                 // On crée un drive
-            }
-            
-            if (services.type == "git") {
-                // On crée un repo git
             }
         }
         
