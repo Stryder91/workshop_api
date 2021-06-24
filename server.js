@@ -5,6 +5,10 @@ require('dotenv').config();
 
 const createBoard = require('./services/trello');
 const addMembersToABoard = require('./services/trello');
+
+const connectToDrive = require('./services/google_drive/driveLogin');
+const createFolder = require('./services/google_drive/drive');
+const appendFileToFolder = require('./services/google_drive/drive');
 // import { createBoard, addMembersToABoard } from "./services/trello.js";
 // import { createFolder, appendFileToFolder } from "./services/google_drive/drive";
 
@@ -70,7 +74,10 @@ app.post('/project', (req, res) => {
             }
             
             if (services.type == "drive") {
-                
+                const isConnected = connectToDrive(process.env.CLIENT_SECRET_GDRIVE_API);
+                if (isConnected) {
+                    createFolder(serviceName);
+                }
             }
         }
         
