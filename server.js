@@ -1,3 +1,6 @@
+import { export } from "./services/trello.js";
+
+
 const express = require('express');
 const app = express();
 const port = 3000;
@@ -16,6 +19,7 @@ app.get('/', (req, res) => {
 
 // Test du body qu'on envoie en curl ou autres
 app.post('/test', (req, res) => {
+    createBoard('Corentin');
     res.send(JSON.stringify(req.body));
 });
 
