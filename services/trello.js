@@ -1,8 +1,8 @@
 // This code sample uses the 'node-fetch' library:
 // https://www.npmjs.com/package/node-fetch
 const fetch = require('node-fetch');
-const key = 'ec9831db2e4b337a39978869ad329976';
-const token = '5c07397ce3e96338d34ca0cc04a8c3c8b825feede2f161d1d9f5eaf1dba325d0';
+const key = process.env.KEY;
+const token = process.env.TOKEN;
 const baseAPI = 'https://api.trello.com/1';
 
 /**
