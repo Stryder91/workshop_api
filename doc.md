@@ -1,5 +1,5 @@
 ## Ce qu'attend Google Calendar 
-
+```
 var event = {
     'summary': 'Google I/O 2015',
     'location': '800 Howard St., San Francisco, CA 94103',
@@ -27,9 +27,11 @@ var event = {
         ]
     }
 };
+```
 
-On peut juste utiliser "summary", "start" et "end".
+Mais on peut juste utiliser "summary", "start" et "end".
 
+```
 curl -X POST -H "Content-Type: application/json" -d '{
     "name": "coucou", 
     "users":[
@@ -53,6 +55,4 @@ curl -X POST -H "Content-Type: application/json" -d '{
         }
     ];
     "creator": "creator@gmail.com"}' http://localhost:3000/project
-
-
-milo project 
+```
