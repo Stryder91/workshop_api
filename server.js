@@ -3,14 +3,9 @@ const app = express();
 const port = 3000;
 require('dotenv').config();
 
-const createBoard = require('./services/trello');
-const addMembersToABoard = require('./services/trello');
-
+// const myTrello = require('./services/trello');
 const connectToDrive = require('./services/google_drive/driveLogin');
-const createFolder = require('./services/google_drive/drive');
-const appendFileToFolder = require('./services/google_drive/drive');
-// import { createBoard, addMembersToABoard } from "./services/trello.js";
-// import { createFolder, appendFileToFolder } from "./services/google_drive/drive";
+const d = require('./services/google_drive/drive');
 
 app.use(
     express.urlencoded({
@@ -26,9 +21,14 @@ app.get('/', (req, res) => {
 
 // Test du body qu'on envoie en curl ou autres
 app.post('/test', (req, res) => {
-    createBoard('Corentin');
     res.send(JSON.stringify(req.body));
 });
+
+app.get('/drive', (req, res) => {
+    d.createFolder()
+    console.log("Ok")
+    // connectToDrive(process.env.CLIENT_SECRET_GDRIVE_API);
+})
 
 // Scénario 1 - Création d'un projet
 app.post('/project', (req, res) => {

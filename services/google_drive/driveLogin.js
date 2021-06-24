@@ -16,13 +16,8 @@ const SCOPES = [
 // time.
 const TOKEN_PATH = 'token.json';
 
-module.exports = function connectToDrive() {
-  // Load client secrets from a local file.
-  fs.readFile('./credentials.json', (err, content) => {
-    if (err) return console.log('Error loading client secret file:', err);
-    // Authorize a client with credentials, then call the Google Drive API.
-    authorize(JSON.parse(content), listFiles);
-  });
+function connectToDrive() {
+  authorize(process.env.CLIENT_SECRET_GDRIVE_API, listFiles);
 }
 
 /**
@@ -31,8 +26,13 @@ module.exports = function connectToDrive() {
  * @param {Object} credentials The authorization client credentials.
  * @param {function} callback The callback to call with the authorized client.
  */
-function authorize(credentials, callback) {
-  const {client_secret, client_id, redirect_uris} = credentials.installed;
+function authorize(callback) {
+  // const {client_secret, client_id, redirect_uris} = credentials.installed;
+
+  const client_secret = process.env.CLIENT_SECRET_GDRIVE_API;
+  const client_id = process.env.CLIENT_ID_GDRIVE_API;
+  const redirect_uris = ['https://google.com'];
+
   const oAuth2Client = new google.auth.OAuth2(
       client_id, client_secret, redirect_uris[0]);
 
@@ -97,3 +97,4 @@ function listFiles(auth) {
     }
   });
 }
+module.exports = {connectToDrive, authorize}

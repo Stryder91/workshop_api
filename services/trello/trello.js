@@ -38,7 +38,4 @@ function addMembersToABoard(boardName, membersList){
    	return answer;
 }
 
-module.exports = {
-    createBoard: createBoard,
-    addMembersToABoard: addMembersToABoard
-}
+module.exports = { createBoard, addMembersToABoard }
