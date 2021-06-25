@@ -1,8 +1,8 @@
-# Milo
+# Milo API
 **Milo is a solution to create a link on two webservice in automation with a textual command.
 
 This is our public API repo to retrieve commands from Mattermost and to create the logic in order to 
-link services between (for example create an event Google Calendar and a Drive folder at the same time).
+link services between (for example create an event Google Calendar, a Drive folder and a board in Trello at the same time).
 
 So we cut our service in different scenarios and we will be able to create our own customized scenario in a
 future release. 
@@ -23,9 +23,7 @@ Milo allows you to pick several flowers. This plug-in allows you to automate in 
 ## Technologies
 *
 A list of technologies used within the project:
-* [React](https://fr.reactjs.org/versions/): Version 16.13
-* [Docker](https://docs.docker.com/engine/reference/commandline/version/): Version 20.10
-* [Go](https://golang.org/dl/): Version 1.16.5
+* [NodeJS](https://nodejs.org/en/blog/release/v14.0.0/): Version 14.0
 
 
 ## Installation
