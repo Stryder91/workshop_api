@@ -45,12 +45,12 @@ app.post('/project', (req, res) => {
 
         for (let i=0; i<lengthService; i++) {
             if (services.type == "calendar") {
-                // Quelles données il faut pour construire un évènement
+                // Données il faut pour construire un évènement
                 const dateEvt = (services.date) ? services.date : null;
                 const heureEvt = (services.heure) ? services.heure : null;
                 const dureeEvt = (services.duree) ? services.duree : null;
 
-                // En additionnant l'heure de début avec la durée on obtient l'heure de fins
+                // En additionnant l'heure de début avec la durée on obtient l'heure de fin
                 const heureFinEvt = parseInt(heureEvt.slice(0,2)) + dureeEvt;
 
                 const descriptionEvt = (services.description) ? services.description : null;   
